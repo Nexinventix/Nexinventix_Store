@@ -1,0 +1,90 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+
+  name        String
+  slug        String    @unique
+  description String?
+  image       String?
+
+  isActive    Boolean   @default(true)
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  products    Product[]
+}
+
+model Product {
+  id             String   @id @default(auto()) @map("_id") @db.ObjectId
+
+  name           String
+  slug           String   @unique
+  brand          String?
+
+  categoryId     String   @db.ObjectId
+  category       Category @relation(fields: [categoryId], references: [id])
+
+  description    String?
+
+  image          String?
+  image2         String?
+  image3         String?
+
+  price          Float
+  oldPrice       Float?
+
+  stock          Int      @default(0)
+
+  sku            String   @unique
+
+  specifications Json?
+
+  rating         Float?
+  reviews        Int      @default(0)
+
+  featured       Boolean  @default(false)
+  isActive       Boolean  @default(true)
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Order {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+
+  paymentReference  String   @unique
+  paymentAccessCode String?
+
+  customerFirstName String
+  customerLastName  String
+  customerEmail     String
+  customerPhone     String
+
+  deliveryAddress   String
+  deliveryCity      String
+  deliveryState     String
+  deliveryNote      String?
+
+  // Product snapshots preserve the details and prices at purchase time.
+  items             Json
+
+  // Store the total in kobo to avoid currency precision issues.
+  amountKobo        Int
+  currency          String   @default("NGN")
+
+  status            String   @default("PENDING")
+  paymentStatus     String   @default("PENDING")
+
+  paidAt            DateTime?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}

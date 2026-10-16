@@ -1,0 +1,304 @@
+.section {
+  padding: 85px 0;
+
+  background: #ffffff;
+
+  overflow: hidden;
+}
+
+.container {
+  width: min(100% - 40px, 1380px);
+
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 30px;
+}
+
+.titleArea {
+  min-width: 0;
+}
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #1463ff;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.8px;
+}
+
+.titleArea h2 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: clamp(30px, 4vw, 45px);
+
+  line-height: 1.05;
+
+  letter-spacing: -1.8px;
+}
+
+.titleArea p {
+  max-width: 550px;
+
+  margin: 10px 0 0;
+
+  color: #667085;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+}
+
+/* =========================================
+   HEADER ACTIONS
+========================================= */
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  flex-shrink: 0;
+}
+
+.viewAll {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  color: #1463ff;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: gap 0.25s ease;
+}
+
+.viewAll:hover {
+  gap: 11px;
+}
+
+.arrows {
+  display: flex;
+  gap: 7px;
+}
+
+.arrows button {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #dfe4eb;
+
+  background: #ffffff;
+
+  color: #344054;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.arrows button:hover {
+  background: #1463ff;
+
+  border-color: #1463ff;
+
+  color: #ffffff;
+
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   CAROUSEL
+========================================= */
+
+.carousel {
+  display: grid;
+
+  grid-auto-flow: column;
+
+  grid-auto-columns:
+    calc((100% - 64px) / 5);
+
+  gap: 16px;
+
+  overflow-x: auto;
+
+  overscroll-behavior-inline: contain;
+
+  scroll-snap-type: x mandatory;
+
+  scrollbar-width: none;
+
+  padding: 8px 3px 25px;
+}
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.product {
+  min-width: 0;
+
+  scroll-snap-align: start;
+}
+
+/* =========================================
+   SCROLL HINT
+========================================= */
+
+.scrollHint {
+  display: none;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  margin-top: 4px;
+
+  color: #98a2b3;
+}
+
+.scrollHint span {
+  width: 28px;
+  height: 2px;
+
+  background: #1463ff;
+}
+
+.scrollHint p {
+  margin: 0;
+
+  font-size: 9px;
+}
+
+/* =========================================
+   LARGE TABLET
+========================================= */
+
+@media (max-width: 1200px) {
+  .carousel {
+    grid-auto-columns:
+      calc((100% - 48px) / 4);
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .section {
+    padding: 70px 0;
+  }
+
+  .carousel {
+    grid-auto-columns:
+      calc((100% - 32px) / 3);
+  }
+
+  .headerActions {
+    gap: 15px;
+  }
+
+  .viewAll {
+    font-size: 10px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .header {
+    align-items: flex-end;
+
+    margin-bottom: 23px;
+  }
+
+  .titleArea h2 {
+    font-size: 29px;
+  }
+
+  .titleArea p {
+    font-size: 11px;
+  }
+
+  .headerActions {
+    gap: 0;
+  }
+
+  .viewAll {
+    display: none;
+  }
+
+  .arrows button {
+    width: 34px;
+    height: 34px;
+  }
+
+  .carousel {
+    grid-auto-columns:
+      calc((100% - 12px) / 2);
+
+    gap: 12px;
+
+    padding-bottom: 15px;
+
+    scroll-snap-type: x mandatory;
+  }
+
+  .scrollHint {
+    display: flex;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 390px) {
+  .carousel {
+    grid-auto-columns: 78%;
+  }
+
+  .titleArea h2 {
+    font-size: 26px;
+  }
+}

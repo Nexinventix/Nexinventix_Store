@@ -1,0 +1,157 @@
+.section {
+  position: relative;
+  background: #ffffff;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.container {
+  width: min(100% - 40px, 1380px);
+  margin: 0 auto;
+}
+
+.services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.service {
+  position: relative;
+
+  min-height: 120px;
+
+  padding: 25px 25px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  border-right: 1px solid #edf0f4;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.service:first-child {
+  border-left: 1px solid #edf0f4;
+}
+
+.service:hover {
+  background: #f8faff;
+}
+
+.iconWrapper {
+  width: 49px;
+  height: 49px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #edf4ff;
+
+  color: #1463ff;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.service:hover .iconWrapper {
+  background: #1463ff;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.content h3 {
+  margin: 0;
+
+  color: #182230;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.content p {
+  margin: 6px 0 0;
+
+  color: #7a8494;
+
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .service:nth-child(2) {
+    border-right: 0;
+  }
+
+  .service:nth-child(3) {
+    border-top: 1px solid #edf0f4;
+  }
+
+  .service:nth-child(4) {
+    border-top: 1px solid #edf0f4;
+    border-right: 0;
+  }
+
+  .service {
+    min-height: 105px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+
+  .services {
+    grid-template-columns: 1fr;
+  }
+
+  .service,
+  .service:nth-child(3),
+  .service:nth-child(4) {
+    min-height: 88px;
+
+    padding: 18px 20px;
+
+    border-left: 0;
+    border-right: 0;
+    border-top: 1px solid #edf0f4;
+  }
+
+  .service:first-child {
+    border-top: 0;
+  }
+
+  .iconWrapper {
+    width: 43px;
+    height: 43px;
+  }
+
+  .content h3 {
+    font-size: 12px;
+  }
+
+  .content p {
+    font-size: 10px;
+  }
+}

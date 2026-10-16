@@ -1,0 +1,644 @@
+.header {
+  position: relative;
+  z-index: 1000;
+  background: #ffffff;
+  color: #111827;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.container {
+  width: min(100% - 40px, 1380px);
+  margin: 0 auto;
+}
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.topBar {
+  background: #0b1220;
+  color: #d8dee9;
+  font-size: 12px;
+}
+
+.topBar .container {
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topLeft,
+.topRight {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.topLeft span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.topRight a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.topRight a:hover {
+  color: #ffffff;
+}
+
+/* =========================================
+   MAIN HEADER
+========================================= */
+
+.mainHeader {
+  background: #ffffff;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.mainHeader .container {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+  display: inline-flex;
+  align-items: baseline;
+  text-decoration: none;
+  white-space: nowrap;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.logoInventix {
+  width: 160px;
+}
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.searchWrapper {
+  flex: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.searchForm {
+  height: 48px;
+  display: flex;
+  align-items: stretch;
+  background: #f5f7fa;
+  border: 1px solid #e0e5ec;
+  border-radius: 6px;
+  overflow: hidden;
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.searchForm:focus-within {
+  border-color: #1463ff;
+  box-shadow: 0 0 0 3px rgba(20, 99, 255, 0.1);
+}
+
+.searchForm input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  padding: 0 16px;
+  color: #111827;
+  font-size: 14px;
+}
+
+.searchForm input::placeholder {
+  color: #8993a4;
+}
+
+.searchForm button {
+  width: 55px;
+  border: 0;
+  background: #1463ff;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s ease;
+}
+
+.searchForm button:hover {
+  background: #0d4fd4;
+}
+
+/* =========================================
+   ACTIONS
+========================================= */
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.actionItem,
+.iconAction,
+.cartAction {
+  position: relative;
+  color: #111827;
+  text-decoration: none;
+}
+
+.actionItem {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.actionText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.actionText small,
+.cartText small {
+  color: #7a8494;
+  font-size: 10px;
+}
+
+.actionText strong,
+.cartText strong {
+  font-size: 13px;
+}
+
+.iconAction {
+  display: flex;
+  align-items: center;
+}
+
+.cartAction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cartText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.badge {
+  position: absolute;
+  top: -9px;
+  right: -9px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 50px;
+  background: #1463ff;
+  color: white;
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.navigation {
+  background: #ffffff;
+  border-bottom: 1px solid #e8ebef;
+}
+
+.navigation .container {
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+}
+
+.categoryMenu {
+  position: relative;
+  height: 52px;
+}
+
+.categoryButton {
+  height: 52px;
+  min-width: 205px;
+  padding: 0 18px;
+  border: 0;
+  background: #1463ff;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.categoryButton svg:last-child {
+  transition: transform 0.25s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* =========================================
+   CATEGORY DROPDOWN
+========================================= */
+
+.categoryDropdown {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  width: 245px;
+  background: #ffffff;
+  border: 1px solid #e6e9ee;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.categoryDropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.categoryDropdown a {
+  display: block;
+  padding: 11px 18px;
+  color: #313a48;
+  text-decoration: none;
+  font-size: 13px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.categoryDropdown a:hover {
+  background: #f3f7ff;
+  color: #1463ff;
+  padding-left: 23px;
+}
+
+/* =========================================
+   NAV LINKS
+========================================= */
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  height: 52px;
+  margin-left: 25px;
+  gap: 27px;
+}
+
+.navLinks a {
+  position: relative;
+  color: #303846;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 18px 0;
+  transition: color 0.25s ease;
+}
+
+.navLinks a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 10px;
+  height: 2px;
+  background: #1463ff;
+  transition: right 0.25s ease;
+}
+
+.navLinks a:hover {
+  color: #1463ff;
+}
+
+.navLinks a:hover::after {
+  right: 0;
+}
+
+/* =========================================
+   HOT DEALS
+========================================= */
+
+.dealsLink {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #e53935;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dealDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e53935;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.6);
+    opacity: 0.55;
+  }
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.mobileMenuButton {
+  display: none;
+  border: 0;
+  background: transparent;
+  color: #111827;
+  padding: 5px;
+  cursor: pointer;
+}
+
+/* =========================================
+   MOBILE DRAWER
+========================================= */
+
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.48);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.mobileOverlayOpen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobileDrawer {
+  position: fixed;
+  z-index: 2100;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: min(350px, 88vw);
+  background: #ffffff;
+  overflow-y: auto;
+  transform: translateX(-100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 12px 0 35px rgba(0, 0, 0, 0.15);
+}
+
+.mobileDrawerOpen {
+  transform: translateX(0);
+}
+
+.mobileDrawerHeader {
+  min-height: 72px;
+  padding: 0 20px;
+  border-bottom: 1px solid #e8ebef;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.closeButton {
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: #f2f4f7;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.mobileSearch {
+  padding: 18px 20px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileNav > a,
+.mobileCategoryTitle {
+  padding: 15px 20px;
+  border-bottom: 1px solid #f0f1f3;
+  color: #1f2937;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.mobileNav > a:hover {
+  background: #f5f8ff;
+  color: #1463ff;
+}
+
+.mobileCategoryTitle {
+  background: #f7f8fa;
+  color: #687386;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.mobileCategoryLink {
+  padding-left: 35px !important;
+  font-weight: 400 !important;
+  font-size: 13px !important;
+}
+
+.mobileAccountLinks {
+  margin-top: 15px;
+  padding: 10px 20px 30px;
+  border-top: 1px solid #eeeeee;
+}
+
+.mobileAccountLinks a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 0;
+  color: #303846;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .mainHeader .container {
+    gap: 20px;
+  }
+
+  .actions {
+    gap: 15px;
+  }
+
+  .actionText,
+  .cartText {
+    display: none;
+  }
+
+  .navLinks {
+    gap: 18px;
+    margin-left: 18px;
+  }
+
+  .categoryButton {
+    min-width: 180px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+  .container {
+    width: min(100% - 28px, 1380px);
+  }
+
+  .topBar {
+    display: none;
+  }
+
+  .mainHeader .container {
+    min-height: 70px;
+    gap: 12px;
+  }
+
+  .mobileMenuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logoNex,
+  .logoInventix {
+    font-size: 21px;
+  }
+
+  .searchWrapper {
+    display: none;
+  }
+
+  .actions {
+    margin-left: auto;
+    gap: 13px;
+  }
+
+  .actionItem {
+    display: none;
+  }
+
+  .iconAction {
+    display: flex;
+  }
+
+  .cartText {
+    display: none;
+  }
+
+  .navigation {
+    display: none;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 425px) {
+  .container {
+    width: calc(100% - 20px);
+  }
+
+  .mainHeader .container {
+    gap: 8px;
+  }
+
+
+  .logoInventix {
+    width: 100px;
+  }
+
+  .actions {
+    gap: 9px;
+  }
+
+  .mobileMenuButton {
+    padding: 3px;
+  }
+}
+
+
+.mobileCartCount {
+  min-width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: #111;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1;
+}

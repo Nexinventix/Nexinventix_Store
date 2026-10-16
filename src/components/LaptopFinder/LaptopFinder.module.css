@@ -1,0 +1,436 @@
+.section {
+  position: relative;
+  padding: 85px 0;
+  background: #f5f7fa;
+  overflow: hidden;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: -280px;
+  top: -250px;
+  border-radius: 50%;
+  background: rgba(20, 99, 255, 0.06);
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+
+  width: min(100% - 40px, 1280px);
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+  margin-bottom: 32px;
+}
+
+.headingIcon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #1463ff;
+  color: #ffffff;
+
+  border-radius: 7px;
+
+  box-shadow: 0 8px 25px rgba(20, 99, 255, 0.18);
+}
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #1463ff;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+}
+
+.heading h2 {
+  margin: 0;
+
+  color: #101828;
+
+  font-size: clamp(28px, 4vw, 43px);
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+}
+
+.heading h2 span {
+  color: #1463ff;
+}
+
+.heading p {
+  margin: 10px 0 0;
+
+  color: #667085;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   FINDER BOX
+========================================= */
+
+.finder {
+  position: relative;
+
+  padding: 28px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e9ef;
+
+  border-radius: 10px;
+
+  box-shadow:
+    0 15px 45px rgba(16, 24, 40, 0.07),
+    0 2px 7px rgba(16, 24, 40, 0.03);
+
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.finder:hover {
+  box-shadow:
+    0 20px 55px rgba(16, 24, 40, 0.09),
+    0 3px 10px rgba(16, 24, 40, 0.04);
+}
+
+.fields {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1.15fr
+    0.85fr
+    1.15fr
+    auto;
+
+  gap: 12px;
+
+  align-items: end;
+}
+
+/* =========================================
+   FIELD
+========================================= */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.field label {
+  color: #344054;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.field select {
+  width: 100%;
+  height: 50px;
+
+  padding: 0 38px 0 14px;
+
+  border: 1px solid #d9dee7;
+
+  border-radius: 5px;
+
+  outline: none;
+
+  background-color: #ffffff;
+
+  color: #344054;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  cursor: pointer;
+
+  appearance: none;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, #667085 50%),
+    linear-gradient(135deg, #667085 50%, transparent 50%);
+
+  background-position:
+    calc(100% - 17px) 21px,
+    calc(100% - 12px) 21px;
+
+  background-size:
+    5px 5px,
+    5px 5px;
+
+  background-repeat: no-repeat;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.field select:hover {
+  border-color: #aeb7c6;
+}
+
+.field select:focus {
+  border-color: #1463ff;
+
+  box-shadow:
+    0 0 0 3px rgba(20, 99, 255, 0.1);
+}
+
+/* =========================================
+   FIND BUTTON
+========================================= */
+
+.findButton {
+  height: 50px;
+
+  padding: 0 19px;
+
+  border: 0;
+
+  border-radius: 5px;
+
+  background: #1463ff;
+
+  color: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 8px;
+
+  white-space: nowrap;
+
+  font-family: inherit;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.findButton:hover {
+  background: #0d52d8;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(20, 99, 255, 0.22);
+}
+
+.findButton:active {
+  transform: translateY(0);
+}
+
+/* =========================================
+   CLEAR
+========================================= */
+
+.clearButton {
+  margin-top: 15px;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: #1463ff;
+
+  font-family: inherit;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.clearButton:hover {
+  text-decoration: underline;
+}
+
+/* =========================================
+   QUICK LINKS
+========================================= */
+
+.quickLinks {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 9px;
+
+  margin-top: 18px;
+
+  color: #667085;
+
+  font-size: 11px;
+}
+
+.quickLinks span {
+  margin-right: 3px;
+
+  font-weight: 600;
+}
+
+.quickLinks button {
+  padding: 6px 11px;
+
+  border: 1px solid #dfe4eb;
+
+  border-radius: 20px;
+
+  background: #ffffff;
+
+  color: #475467;
+
+  font-family: inherit;
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.quickLinks button:hover {
+  border-color: #1463ff;
+
+  background: #f3f7ff;
+
+  color: #1463ff;
+
+  transform: translateY(-1px);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+  .fields {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .findButton {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .section {
+    padding: 65px 0;
+  }
+
+  .container {
+    width: calc(100% - 28px);
+  }
+
+  .heading {
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .headingIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .heading h2 {
+    font-size: 28px;
+  }
+
+  .heading p {
+    font-size: 12px;
+  }
+
+  .finder {
+    padding: 18px;
+  }
+
+  .fields {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+
+  .field select,
+  .findButton {
+    height: 48px;
+  }
+
+  .quickLinks {
+    align-items: flex-start;
+  }
+
+  .quickLinks span {
+    width: 100%;
+    margin-bottom: 2px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .section {
+    padding: 55px 0;
+  }
+
+  .heading {
+    align-items: center;
+  }
+
+  .headingIcon {
+    display: none;
+  }
+
+  .heading h2 {
+    font-size: 25px;
+  }
+
+  .finder {
+    padding: 15px;
+  }
+}

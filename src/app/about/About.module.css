@@ -1,0 +1,986 @@
+.aboutPage {
+  --about-blue: #1463ff;
+  --about-dark: #101828;
+  --about-muted: #667085;
+  --about-border: #e8edf4;
+  --about-light: #f6f8fc;
+
+  width: 100%;
+  overflow: hidden;
+  color: var(--about-dark);
+  background: #ffffff;
+}
+
+.aboutPage * {
+  box-sizing: border-box;
+}
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 48px;
+  min-height: 570px;
+  padding: 82px max(6%, calc((100% - 1240px) / 2));
+  background:
+    radial-gradient(
+      circle at 82% 40%,
+      rgba(20, 99, 255, 0.12),
+      transparent 32%
+    ),
+    linear-gradient(135deg, #f8faff 0%, #eef4ff 100%);
+}
+
+.heroGlow {
+  position: absolute;
+  top: -150px;
+  right: -120px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: rgba(20, 99, 255, 0.06);
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 590px;
+}
+
+.eyebrow,
+.sectionEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--about-blue);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.eyebrow {
+  margin-bottom: 26px;
+}
+
+.eyebrowDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--about-blue);
+  box-shadow: 0 0 0 5px rgba(20, 99, 255, 0.1);
+}
+
+.heroContent h1 {
+  margin: 0;
+  color: #101828;
+  font-size: clamp(42px, 5vw, 68px);
+  font-weight: 850;
+  line-height: 1.07;
+  letter-spacing: -3px;
+}
+
+.heroContent h1 span,
+.storyHeading h2 span,
+.sectionHeading h2 span,
+.commitmentIntro h2 span {
+  color: var(--about-blue);
+}
+
+.heroContent > p {
+  max-width: 500px;
+  margin: 24px 0 0;
+  color: #596579;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.heroActions,
+.ctaActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 13px;
+  margin-top: 30px;
+}
+
+.primaryButton,
+.secondaryButton,
+.ctaPrimary,
+.ctaSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.primaryButton,
+.ctaPrimary {
+  color: #ffffff;
+  background: var(--about-blue);
+  box-shadow: 0 8px 22px rgba(20, 99, 255, 0.18);
+}
+
+.primaryButton:hover,
+.ctaPrimary:hover {
+  transform: translateY(-2px);
+  background: #0752e5;
+}
+
+.secondaryButton {
+  color: #344054;
+  border: 1px solid #dce4f0;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.secondaryButton:hover {
+  border-color: var(--about-blue);
+  transform: translateY(-2px);
+}
+
+.heroTrust {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 28px;
+  color: #68758a;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.heroTrust svg {
+  flex-shrink: 0;
+  color: var(--about-blue);
+}
+
+.heroVisual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 390px;
+}
+
+.visualOrb {
+  position: absolute;
+  width: min(370px, 90%);
+  aspect-ratio: 1;
+  border: 1px solid rgba(20, 99, 255, 0.12);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(20, 99, 255, 0.1),
+    rgba(20, 99, 255, 0.015) 68%,
+    transparent 69%
+  );
+}
+
+.visualCardMain {
+  position: relative;
+  z-index: 1;
+  width: min(390px, 94%);
+  padding: 23px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 19px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 30px 80px rgba(26, 54, 100, 0.13),
+    0 5px 15px rgba(26, 54, 100, 0.04);
+  transform: rotate(-3deg);
+}
+
+.visualCardTop {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #667085;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+}
+
+.visualStatus {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #12b76a;
+}
+
+.visualDevice {
+  margin: 30px 10px 24px;
+}
+
+.deviceScreen {
+  padding: 10px;
+  overflow: hidden;
+  border: 7px solid #202b40;
+  border-radius: 12px 12px 5px 5px;
+  background: #eaf1ff;
+  box-shadow: 0 12px 22px rgba(16, 24, 40, 0.12);
+}
+
+.deviceScreenTop {
+  display: flex;
+  gap: 4px;
+  padding-bottom: 12px;
+}
+
+.deviceScreenTop span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #b7c8e8;
+}
+
+.deviceContent {
+  min-height: 118px;
+  padding: 20px 15px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #dce8ff, #f9fbff);
+}
+
+.deviceLineLong,
+.deviceLineShort {
+  height: 8px;
+  border-radius: 8px;
+  background: #1463ff;
+}
+
+.deviceLineLong {
+  width: 65%;
+}
+
+.deviceLineShort {
+  width: 40%;
+  margin-top: 9px;
+  background: #b5c9f7;
+}
+
+.deviceBlocks {
+  display: flex;
+  gap: 8px;
+  margin-top: 19px;
+}
+
+.deviceBlocks span {
+  flex: 1;
+  height: 38px;
+  border: 1px solid rgba(20, 99, 255, 0.12);
+  border-radius: 5px;
+  background: rgba(20, 99, 255, 0.1);
+}
+
+.deviceBlocks span:nth-child(2) {
+  background: rgba(20, 99, 255, 0.2);
+}
+
+.deviceBase {
+  width: 115%;
+  height: 9px;
+  margin-left: -7.5%;
+  border-radius: 2px 2px 8px 8px;
+  background: linear-gradient(#d6deeb, #a9b5c8);
+}
+
+.visualCardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.visualCardBottom > div:first-child {
+  display: grid;
+  gap: 5px;
+}
+
+.visualCardBottom strong {
+  font-size: 17px;
+}
+
+.visualCardBottom span {
+  color: #7a8598;
+  font-size: 11px;
+}
+
+.visualArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  color: white;
+  background: var(--about-blue);
+}
+
+.floatingBadge {
+  position: absolute;
+  z-index: 2;
+  right: -2px;
+  bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 17px;
+  border: 1px solid #e7edf8;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 14px 35px rgba(16, 24, 40, 0.1);
+}
+
+.floatingBadge > svg {
+  color: var(--about-blue);
+}
+
+.floatingBadge > div {
+  display: grid;
+  gap: 4px;
+}
+
+.floatingBadge strong {
+  font-size: 12px;
+}
+
+.floatingBadge span {
+  color: #7a8598;
+  font-size: 10px;
+}
+
+.floatingDot {
+  position: absolute;
+  top: 35px;
+  right: 12%;
+  width: 18px;
+  height: 18px;
+  border: 4px solid #ffffff;
+  border-radius: 50%;
+  background: #ff9f43;
+  box-shadow: 0 0 0 7px rgba(255, 159, 67, 0.13);
+}
+
+/* Story */
+
+.storySection {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 105px 6%;
+}
+
+.storyLabel {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.storyLine {
+  width: 55px;
+  height: 1px;
+  background: #cdd9ec;
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr 0.9fr;
+  gap: 80px;
+  margin-top: 35px;
+}
+
+.storyHeading h2,
+.sectionHeading h2,
+.commitmentIntro h2 {
+  margin: 0;
+  font-size: clamp(34px, 4vw, 48px);
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.storyText p {
+  margin: 0 0 18px;
+  color: var(--about-muted);
+  font-size: 14px;
+  line-height: 1.95;
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+  color: var(--about-blue);
+  font-size: 13px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.textLink:hover {
+  gap: 15px;
+}
+
+/* Values */
+
+.valuesSection {
+  padding: 100px 6%;
+  background: var(--about-light);
+}
+
+.sectionHeading {
+  max-width: 650px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.sectionHeading .sectionEyebrow {
+  margin-bottom: 20px;
+}
+
+.sectionHeading h2 {
+  font-size: clamp(36px, 4vw, 50px);
+}
+
+.sectionHeading > p,
+.commitmentIntro > p {
+  max-width: 530px;
+  margin: 19px auto 0;
+  color: var(--about-muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.valueCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 25px 23px 28px;
+  overflow: hidden;
+  border: 1px solid #e8edf5;
+  border-radius: 12px;
+  background: #ffffff;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.valueCard:hover {
+  transform: translateY(-5px);
+  border-color: #d2e0ff;
+  box-shadow: 0 18px 40px rgba(16, 24, 40, 0.06);
+}
+
+.valueCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.valueIcon,
+.commitmentIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  color: var(--about-blue);
+  background: #edf3ff;
+}
+
+.valueNumber {
+  color: #b4c0d2;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.valueCard h3 {
+  margin: 0 0 12px;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.valueCard p {
+  margin: 0;
+  color: var(--about-muted);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.valueCardLine {
+  position: absolute;
+  right: 23px;
+  bottom: 0;
+  left: 23px;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--about-blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+
+.valueCard:hover .valueCardLine {
+  transform: scaleX(1);
+}
+
+/* Mission, vision and values */
+
+.commitmentSection {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 80px;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 110px 6%;
+}
+
+.commitmentIntro {
+  align-self: start;
+}
+
+.commitmentIntro .sectionEyebrow {
+  margin-bottom: 20px;
+}
+
+.commitmentIntro h2 {
+  font-size: clamp(34px, 3.5vw, 45px);
+}
+
+.commitmentIntro > p {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.commitmentList {
+  border-top: 1px solid var(--about-border);
+}
+
+.commitmentItem {
+  display: grid;
+  grid-template-columns: 50px minmax(0, 1fr) 20px;
+  align-items: start;
+  gap: 20px;
+  padding: 26px 0;
+  border-bottom: 1px solid var(--about-border);
+}
+
+.commitmentIcon {
+  width: 46px;
+  height: 46px;
+}
+
+.commitmentContent {
+  position: relative;
+}
+
+.commitmentNumber {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--about-blue);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.commitmentContent h3 {
+  margin: 0 0 9px;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.commitmentContent p {
+  margin: 0;
+  color: var(--about-muted);
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.commitmentArrow {
+  margin-top: 7px;
+  color: #a4afc0;
+}
+
+/* CTA */
+
+.ctaSection {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+  max-width: 1240px;
+  min-height: 330px;
+  margin: 0 auto 90px;
+  padding: 65px 7%;
+  overflow: hidden;
+  border-radius: 18px;
+  color: #ffffff;
+  background: #101d35;
+}
+
+.ctaGlow {
+  position: absolute;
+  top: -180px;
+  right: 5%;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  background: rgba(20, 99, 255, 0.22);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+}
+
+.ctaEyebrow {
+  color: #8fb3ff;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.ctaContent h2 {
+  margin: 18px 0 0;
+  font-size: clamp(32px, 4vw, 46px);
+  font-weight: 850;
+  line-height: 1.2;
+  letter-spacing: -1.4px;
+}
+
+.ctaContent > p {
+  max-width: 480px;
+  margin: 16px 0 0;
+  color: #c1ccdd;
+  font-size: 13px;
+  line-height: 1.9;
+}
+
+.ctaActions {
+  margin-top: 24px;
+}
+
+.ctaPrimary {
+  color: #ffffff;
+  background: var(--about-blue);
+}
+
+.ctaSecondary {
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.ctaSecondary:hover {
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+.ctaDecoration {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+}
+
+.ctaDecoration div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgba(143, 179, 255, 0.3);
+  border-radius: 50%;
+}
+
+.ctaDecoration div:nth-child(2) {
+  width: 70%;
+  height: 70%;
+}
+
+.ctaDecoration div:nth-child(3) {
+  width: 35%;
+  height: 35%;
+  border: none;
+  background: var(--about-blue);
+  box-shadow: 0 0 55px rgba(20, 99, 255, 0.6);
+}
+
+/* Responsive */
+
+@media (max-width: 1050px) {
+  .hero {
+    gap: 25px;
+    padding-right: 5%;
+    padding-left: 5%;
+  }
+
+  .heroContent h1 {
+    font-size: clamp(40px, 5vw, 58px);
+  }
+
+  .storyGrid {
+    gap: 45px;
+  }
+
+  .valuesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .commitmentSection {
+    gap: 45px;
+  }
+
+  .ctaSection {
+    margin-right: 5%;
+    margin-left: 5%;
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 65px 6% 35px;
+  }
+
+  .heroContent {
+    max-width: 100%;
+  }
+
+  .heroContent h1 {
+    font-size: clamp(40px, 10vw, 57px);
+    letter-spacing: -2px;
+  }
+
+  .heroContent > p {
+    font-size: 14px;
+  }
+
+  .heroVisual {
+    min-height: 360px;
+    margin-top: 5px;
+  }
+
+  .visualCardMain {
+    width: min(360px, 90%);
+  }
+
+  .floatingBadge {
+    right: 0;
+    bottom: 15px;
+  }
+
+  .storySection {
+    padding: 75px 6%;
+  }
+
+  .storyGrid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 27px;
+  }
+
+  .storyHeading h2,
+  .sectionHeading h2,
+  .commitmentIntro h2 {
+    font-size: 36px;
+    letter-spacing: -1.2px;
+  }
+
+  .valuesSection {
+    padding: 75px 6%;
+  }
+
+  .sectionHeading {
+    margin-bottom: 35px;
+  }
+
+  .valuesGrid {
+    gap: 13px;
+  }
+
+  .valueCard {
+    min-height: 245px;
+    padding: 20px 17px 25px;
+  }
+
+  .valueCard h3 {
+    font-size: 14px;
+  }
+
+  .valueCard p {
+    font-size: 12px;
+  }
+
+  .commitmentSection {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding: 75px 6%;
+  }
+
+  .commitmentIntro > p {
+    margin-left: 0;
+  }
+
+  .commitmentItem {
+    grid-template-columns: 44px minmax(0, 1fr) 18px;
+    gap: 13px;
+  }
+
+  .commitmentIcon {
+    width: 42px;
+    height: 42px;
+  }
+
+  .ctaSection {
+    min-height: 0;
+    margin: 0 5% 60px;
+    padding: 45px 7%;
+    border-radius: 14px;
+  }
+
+  .ctaContent h2 {
+    font-size: 34px;
+  }
+
+  .ctaDecoration {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .eyebrow,
+  .sectionEyebrow {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .hero {
+    padding-top: 50px;
+  }
+
+  .heroActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .heroActions a {
+    width: 100%;
+  }
+
+  .heroTrust {
+    align-items: flex-start;
+    font-size: 11px;
+  }
+
+  .heroVisual {
+    min-height: 315px;
+  }
+
+  .visualCardMain {
+    padding: 17px;
+  }
+
+  .visualDevice {
+    margin: 23px 5px 20px;
+  }
+
+  .deviceContent {
+    min-height: 95px;
+    padding: 15px 10px;
+  }
+
+  .deviceBlocks span {
+    height: 29px;
+  }
+
+  .floatingBadge {
+    right: -4px;
+    bottom: 6px;
+    padding: 12px;
+  }
+
+  .storyHeading h2,
+  .sectionHeading h2,
+  .commitmentIntro h2 {
+    font-size: 32px;
+  }
+
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .valueCard {
+    min-height: 0;
+    padding: 22px;
+  }
+
+  .valueCardTop {
+    margin-bottom: 18px;
+  }
+
+  .valueCard p {
+    font-size: 13px;
+  }
+
+  .commitmentContent h3 {
+    font-size: 16px;
+  }
+
+  .commitmentContent p {
+    font-size: 12px;
+  }
+
+  .ctaContent h2 {
+    font-size: 30px;
+  }
+
+  .ctaActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ctaActions a {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aboutPage *,
+  .aboutPage *::before,
+  .aboutPage *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
